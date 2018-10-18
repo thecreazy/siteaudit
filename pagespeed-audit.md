@@ -8,6 +8,13 @@
    ### Usability Score: 99
 
    
+    > Avoid landing page redirects
+    Rule Impact: 9.50
+    https://caffeina.com/
+    http://caffeina.com/en/
+    https://caffeina.com/en/
+  ---
+  
     > Leverage browser caching
     Rule Impact: 1.92
     https://www.googletagmanager.com/gtm.js?id=GTM-WVBVMX
@@ -16,7 +23,7 @@
   ---
   
     > Reduce server response time
-    Rule Impact: 6.95
+    Rule Impact: 5.85
     
   ---
   
@@ -105,6 +112,13 @@
    ### Usability Score: n/d
 
    
+    > Avoid landing page redirects
+    Rule Impact: 3.00
+    https://caffeina.com/
+    http://caffeina.com/en/
+    https://caffeina.com/en/
+  ---
+  
     > Leverage browser caching
     Rule Impact: 1.28
     https://www.googletagmanager.com/gtm.js?id=GTM-WVBVMX
@@ -113,7 +127,7 @@
   ---
   
     > Reduce server response time
-    Rule Impact: 6.50
+    Rule Impact: 3.90
     
   ---
   

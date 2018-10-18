@@ -5,4 +5,4 @@ const WriteFile = ( dataRaw, filename ) => {
  fs.writeFileSync( path.join( __dirname, '../..', `${filename}.md` ), dataRaw );
 }
 
-exports.defaults = WriteFile
+module.exports = WriteFile

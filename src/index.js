@@ -3,9 +3,9 @@ const colors = require( 'colors' );
 const fetch = require( 'node-fetch' )
 
 const package = require( '../package.json' );
-const Lighthouse = require( './audits/Lighthouse' ).default;
-const WriteFile = require( './utils/Writefile' ).defaults;
-
+const Audits = require( './audits' )
+const WriteFile = require( './utils/Writefile' );
+console.log( WriteFile )
 
 const {
  version
@@ -15,6 +15,9 @@ const {
 
 class Main {
  constructor() {
+  this.auditsType = [ 'pagespeed', 'lighthouse' ];
+
+
   program
    .version( version )
    .option( '-u, --url [value]', 'Set the url to run audit' )
@@ -27,6 +30,8 @@ class Main {
    pagespeed,
    lighthouse
   } = program
+
+
 
   console.log( `You will run the audit for the site: ${url}`.green );
   if ( !pagespeed ) console.log( 'whit no Pagespeed audit'.red );
@@ -45,9 +50,13 @@ class Main {
    console.log( 'SORRY, YOUR URL IS NOT VALID'.red );
    return;
   }
-  if ( options.pagespeed ) {
-   const result = await new Lighthouse( url ).start()
-   WriteFile( result, 'pagespeed-audit' )
+
+  for ( let i in this.auditsType ) {
+   if ( options[ this.auditsType[ i ] ] ) {
+    console.log( this.auditsType[ i ] )
+    const result = await new Audits[ this.auditsType[ i ] ]( url ).start()
+    WriteFile( result, `${this.auditsType[ i ]}-audit` )
+   }
   }
 
  }
