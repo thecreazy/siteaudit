@@ -1,4 +1,3 @@
 node_modules
-output/*
-!output/.gitkeep
+output
 .DS_Store
