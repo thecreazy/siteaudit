@@ -2,10 +2,9 @@
   "name": "siteaudit",
   "version": "1.0.0",
   "description": "Audit for your online website",
-  "main": "/src/index.js",
+  "main": "/lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon ./src/index.js"
+    "test": ""
   },
   "author": "canella riccardo <canella_riccardo@icloud.com>",
   "license": "MIT",

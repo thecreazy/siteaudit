@@ -1,0 +1,4 @@
+#!/usr/bin/env node
+
+var SiteAudit = require('../lib/index.js')
+new SiteAudit();
