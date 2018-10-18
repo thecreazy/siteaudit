@@ -1,6 +1,7 @@
 const ora = require( 'ora' );
 const psi = require( 'psi' );
 
+
 class Pagespeed {
   constructor( url, opts = {} ) {
     this.url = url;
@@ -10,11 +11,11 @@ class Pagespeed {
       strategies: [ 'mobile', 'desktop' ],
       pages: [ '/' ],
       options: {}
-    } )
+    } );
 
     this.start = this.start.bind( this );
     this.runPSI = this.runPSI.bind( this );
-    this.runSinglePSI = this.runSinglePSI.bind( this )
+    this.runSinglePSI = this.runSinglePSI.bind( this );
     this.formatOutput = this.formatOutput.bind( this );
     this.renderResult = this.renderResult.bind( this );
     this.renderRule = this.renderRule.bind( this );
@@ -23,11 +24,16 @@ class Pagespeed {
 
   async start() {
     this.spinner = ora( `Start ${this.auditName} audit for ${this.url}` ).start();
-    this.spinner = this.spinner.stop()
-    const results = await this.runPSI();
-    const output = this.formatOutput( results );
-    this.spinner.succeed( `Finish ${this.auditName} audit for ${this.url}` )
-    return output
+    this.spinner = this.spinner.stop();
+    try {
+      const results = await this.runPSI();
+      const output = this.formatOutput( results );
+      this.spinner.succeed( `Finish ${this.auditName} audit for ${this.url}` );
+      return output;
+    } catch ( e ) {
+      this.spinner.fail( `Fail ${this.auditName} audit for ${this.url}` );
+      return 'error';
+    }
   }
 
   async runPSI() {
@@ -36,11 +42,11 @@ class Pagespeed {
       const singleSpinner = ora( `Start ${strategy} ${this.auditName} audit` ).start();
       const singleResult = await this.runSinglePSI( Object.assign( {
         strategy,
-      }, this.config.options ) )
-      results.push( singleResult )
-      singleSpinner.succeed( `Finish ${strategy} ${this.auditName} audit` )
+      }, this.config.options ) );
+      results.push( singleResult );
+      singleSpinner.succeed( `Finish ${strategy} ${this.auditName} audit` );
     }
-    return results
+    return results;
   }
 
   async runSinglePSI( options ) {
@@ -49,11 +55,11 @@ class Pagespeed {
     } = options;
     const data = await psi( this.url, options );
     data.strategy = strategy;
-    return data
+    return data;
   }
 
   formatOutput( values ) {
-    return values.map( this.renderResult ).join( '' )
+    return values.map( this.renderResult ).join( '' );
   }
 
   renderResult( data ) {
@@ -62,7 +68,7 @@ class Pagespeed {
       strategy,
       ruleGroups,
       formattedResults
-    } = data
+    } = data;
 
     let results = Object.values( formattedResults.ruleResults )
       .filter( rule => rule.ruleImpact > 0 )
@@ -85,10 +91,10 @@ class Pagespeed {
   renderRule( rule ) {
     return `
     > ${rule.localizedRuleName}
-    Rule Impact: ${rule.ruleImpact.toFixed(2)}
+    Rule Impact: ${rule.ruleImpact.toFixed( 2 )}
     ${this.extractUrlsFromRules( rule ).join( '\n    ' )}
   ---
-  `
+  `;
   }
 
   extractUrlsFromRules( {
@@ -101,10 +107,10 @@ class Pagespeed {
       } else {
         return acc;
       }
-    }, [] )
+    }, [] );
   }
 
 
 }
 
-module.exports = Pagespeed
+module.exports = Pagespeed;

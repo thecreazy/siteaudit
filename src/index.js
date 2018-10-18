@@ -1,14 +1,14 @@
 const program = require( 'commander' );
 const colors = require( 'colors' );
-const fetch = require( 'node-fetch' )
+const fetch = require( 'node-fetch' );
 
 const package = require( '../package.json' );
-const Audits = require( './audits' )
+const Audits = require( './audits' );
 const WriteFile = require( './utils/Writefile' );
 
 const {
  version
-} = package
+} = package;
 
 
 
@@ -34,7 +34,7 @@ class Main {
    url,
    pagespeed,
    lighthouse
-  } = program
+  } = program;
 
 
 
@@ -46,21 +46,21 @@ class Main {
   this.start( url, {
    lighthouse,
    pagespeed
-  } )
+  } );
  }
 
  async start( url, options ) {
-  const isAValidUrl = await this.checkUrl( url )
+  const isAValidUrl = await this.checkUrl( url );
   if ( !isAValidUrl ) {
    console.log( 'SORRY, YOUR URL IS NOT VALID'.red );
    return;
   }
 
   for ( let i in this.auditsType ) {
-   let _audit = this.auditsType[ i ]
+   let _audit = this.auditsType[ i ];
    if ( options[ _audit.name ] ) {
-    const result = await new Audits[ _audit.name ]( url ).start()
-    WriteFile( result, `${_audit.name}-audit${_audit.type}` )
+    const result = await new Audits[ _audit.name ]( url ).start();
+    WriteFile( result, `${_audit.name}-audit${_audit.type}` );
    }
   }
 
@@ -68,14 +68,14 @@ class Main {
 
  async checkUrl( url ) {
   try {
-   const data = await fetch( url )
-   return true
+   const data = await fetch( url );
+   return true;
   } catch ( e ) {
-   return false
+   return false;
   }
  }
 
 }
 
 
-new Main()
+new Main();

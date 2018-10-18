@@ -12,34 +12,31 @@ class Lighthouse {
    chromeFlags: [ '--show-paint-rects' ]
   } );
 
-  this.start = this.start.bind( this )
-
+  this.start = this.start.bind( this );
  }
 
  async start() {
   this.spinner = ora( `Start ${this.auditName} audit for ${this.url}` ).start();
   try {
-   const results = await this.launchChromeAndRunLighthouse( this.url, this.config )
-   const html = ReportGenerator.generateReport( results, 'html' )
+   const results = await this.launchChromeAndRunLighthouse( this.url, this.config );
+   const html = ReportGenerator.generateReport( results, 'html' );
    this.spinner.succeed( `Finish ${this.auditName} audit for ${this.url}` );
    return html;
   } catch ( e ) {
-   console.log( e )
    this.spinner.fail( `Finish ${this.auditName} audit for ${this.url}` );
-   return `error`
+   return `error`;
   }
  }
 
  async launchChromeAndRunLighthouse( url, opts, config = null ) {
   const chrome = await chromeLauncher.launch( {
    chromeFlags: opts.chromeFlags
-  } )
+  } );
   opts.port = chrome.port;
-  const results = await lighthouse( url, opts, config )
-  return chrome.kill().then( () => results.lhr )
+  const results = await lighthouse( url, opts, config );
+  return chrome.kill().then( () => results.lhr );
  }
-
 }
 
 
-module.exports = Lighthouse
+module.exports = Lighthouse;
