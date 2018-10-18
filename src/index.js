@@ -5,7 +5,6 @@ const fetch = require( 'node-fetch' )
 const package = require( '../package.json' );
 const Audits = require( './audits' )
 const WriteFile = require( './utils/Writefile' );
-console.log( WriteFile )
 
 const {
  version
@@ -15,7 +14,13 @@ const {
 
 class Main {
  constructor() {
-  this.auditsType = [ 'pagespeed', 'lighthouse' ];
+  this.auditsType = [ {
+   name: 'pagespeed',
+   type: '.md'
+  }, {
+   name: 'lighthouse',
+   type: '.html'
+  } ];
 
 
   program
@@ -52,10 +57,10 @@ class Main {
   }
 
   for ( let i in this.auditsType ) {
-   if ( options[ this.auditsType[ i ] ] ) {
-    console.log( this.auditsType[ i ] )
-    const result = await new Audits[ this.auditsType[ i ] ]( url ).start()
-    WriteFile( result, `${this.auditsType[ i ]}-audit` )
+   let _audit = this.auditsType[ i ]
+   if ( options[ _audit.name ] ) {
+    const result = await new Audits[ _audit.name ]( url ).start()
+    WriteFile( result, `${_audit.name}-audit${_audit.type}` )
    }
   }
 

@@ -1,2 +1,4 @@
 node_modules
-.txt
+output/*
+!output/.gitkeep
+.DS_Store

@@ -2,40 +2,43 @@ const ora = require( 'ora' );
 const psi = require( 'psi' );
 
 class Pagespeed {
-  constructor( url ) {
-    this.url = url
-    this.config = Object.assign( {}, {
+  constructor( url, opts = {} ) {
+    this.url = url;
+    this.auditName = `Pagespeed`;
+
+    this.config = Object.assign( {}, opts, {
       strategies: [ 'mobile', 'desktop' ],
       pages: [ '/' ],
       options: {}
     } )
 
-    this.start = this.start.bind( this )
-    this.runPSI = this.runPSI.bind( this )
+    this.start = this.start.bind( this );
+    this.runPSI = this.runPSI.bind( this );
     this.runSinglePSI = this.runSinglePSI.bind( this )
     this.formatOutput = this.formatOutput.bind( this );
     this.renderResult = this.renderResult.bind( this );
-    this.renderRule = this.renderRule.bind( this )
+    this.renderRule = this.renderRule.bind( this );
+
   }
 
   async start() {
-    this.spinner = ora( `Start Pagespeed audit for ${this.url}` ).start();
+    this.spinner = ora( `Start ${this.auditName} audit for ${this.url}` ).start();
     this.spinner = this.spinner.stop()
     const results = await this.runPSI();
     const output = this.formatOutput( results );
-    this.spinner.succeed( `Finish Pagespeed audit for ${this.url}` )
+    this.spinner.succeed( `Finish ${this.auditName} audit for ${this.url}` )
     return output
   }
 
   async runPSI() {
     const results = []
     for ( var strategy of this.config.strategies ) {
-      const singleSpinner = ora( `Start ${strategy} Pagespeed audit` ).start();
+      const singleSpinner = ora( `Start ${strategy} ${this.auditName} audit` ).start();
       const singleResult = await this.runSinglePSI( Object.assign( {
         strategy,
       }, this.config.options ) )
       results.push( singleResult )
-      singleSpinner.succeed( `Finish ${strategy} Pagespeed audit` )
+      singleSpinner.succeed( `Finish ${strategy} ${this.auditName} audit` )
     }
     return results
   }

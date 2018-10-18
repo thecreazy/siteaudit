@@ -10,8 +10,10 @@
   "author": "canella riccardo <canella_riccardo@icloud.com>",
   "license": "MIT",
   "dependencies": {
+    "chrome-launcher": "^0.10.5",
     "colors": "^1.3.2",
     "commander": "^2.19.0",
+    "lighthouse": "^3.2.1",
     "node-fetch": "^2.2.0",
     "nodemon": "^1.18.4",
     "ora": "^3.0.0",
