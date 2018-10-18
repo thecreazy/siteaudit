@@ -1,5 +1,6 @@
 const ora = require( 'ora' );
 const psi = require( 'psi' );
+const url = require( 'url' );
 
 
 class Pagespeed {
@@ -9,7 +10,7 @@ class Pagespeed {
 
     this.config = Object.assign( {}, opts, {
       strategies: [ 'mobile', 'desktop' ],
-      pages: [ '/' ],
+      pages: [ '/', '/404' ],
       options: {}
     } );
 
@@ -31,6 +32,7 @@ class Pagespeed {
       this.spinner.succeed( `Finish ${this.auditName} audit for ${this.url}` );
       return output;
     } catch ( e ) {
+      console.log( e )
       this.spinner.fail( `Fail ${this.auditName} audit for ${this.url}` );
       return 'error';
     }
@@ -38,23 +40,28 @@ class Pagespeed {
 
   async runPSI() {
     const results = []
-    for ( var strategy of this.config.strategies ) {
-      const singleSpinner = ora( `Start ${strategy} ${this.auditName} audit` ).start();
-      const singleResult = await this.runSinglePSI( Object.assign( {
-        strategy,
-      }, this.config.options ) );
-      results.push( singleResult );
-      singleSpinner.succeed( `Finish ${strategy} ${this.auditName} audit` );
+    for ( let strategy of this.config.strategies ) {
+      for ( let page of this.config.pages ) {
+        const singleSpinner = ora( `Start ${strategy} ${this.auditName} audit for ${page} page` ).start();
+        const singleResult = await this.runSinglePSI( Object.assign( {
+          strategy,
+          page
+        }, this.config.options ) );
+        results.push( singleResult );
+        singleSpinner.succeed( `Finish ${strategy} ${this.auditName} audit for ${page} page` );
+      }
     }
     return results;
   }
 
   async runSinglePSI( options ) {
     const {
-      strategy
+      strategy,
+      page
     } = options;
-    const data = await psi( this.url, options );
+    const data = await psi( url.resolve( this.url, page ), options );
     data.strategy = strategy;
+    data.page = page
     return data;
   }
 
