@@ -2,6 +2,8 @@
 
 Siteaudit will analize your site and generate google Page Speed and Lighthouse report.
 
+<img src="docs/terminal.gif" />
+
 ## Installation
 
 ### **Use nodejs**
