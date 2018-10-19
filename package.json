@@ -1,11 +1,9 @@
 {
   "name": "siteaudit",
   "version": "1.0.0",
-  "description": "Audit for your online website",
+  "description": "Siteaudit will analize your site and generate Google Page Speed and Lighthouse report.",
   "main": "/lib/index.js",
-  "scripts": {
-    "test": ""
-  },
+  "scripts": {},
   "author": "Canella Riccardo <canella_riccardo@icloud.com>",
   "bin": {
     "siteaudit": "bin/siteaudit"
@@ -24,5 +22,18 @@
   },
   "engines": {
     "node": ">=8.0.0"
+  },
+  "keywords": [
+    "audit",
+    "lighthouse",
+    "pagespeed",
+    "benchmark"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thecreazy/siteaudit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thecreazy/siteaudit/issues"
   }
 }
