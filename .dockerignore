@@ -1,0 +1,8 @@
+.gitignore
+.git
+.testoutput
+docs
+exampleconf.json
+LICENSE.MD
+README.MD
+test-docker.sh
