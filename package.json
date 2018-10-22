@@ -1,6 +1,6 @@
 {
   "name": "siteaudit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Siteaudit will analize your site and generate Google Page Speed and Lighthouse report.",
   "main": "/lib/index.js",
   "scripts": {},
