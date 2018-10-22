@@ -18,6 +18,32 @@ siteaudit https://canellariccardo.it
 
 ### **Use docker**
 
+You can also use the docker image to generate the reports
+
+#### Passing no configuration
+
+```sh
+docker run -t \
+-v "$(pwd)/.testoutput":"/output" \
+thecreazy/siteaudit:latest \
+https://canellariccardo.it \
+--headless
+--
+```
+
+#### Passing configuration
+
+```sh
+docker run -t \
+-v "$(pwd)/.testoutput":"/output" \
+-v "$(pwd)/.siteaudit.json":"/.siteaudit.json"
+thecreazy/siteaudit:latest \
+https://canellariccardo.it \
+--no-lighthouse \
+--config /.siteaudit.json \
+--headless
+```
+
 
 ## Runtime options
 
