@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DOCKER_IMAGE="thecreazy/siteaudit"
-SITEAUDIT_URL="https://canellariccardo.it"
+SITEAUDIT_URL="https://airc.it"
 SITEAUDIT_USINGENV="true"
 SITEAUDIT_USINGENV="true"
 
@@ -13,4 +13,5 @@ docker run -t \
 -v "$(pwd)/.testoutput":"/app/output" \
 thecreazy/siteaudit \
 $SITEAUDIT_URL \
---headless
+--headless \
+--a11y

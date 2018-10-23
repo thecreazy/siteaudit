@@ -1,6 +1,10 @@
 # 📈 Siteaudit: Generate audit benchmark for your site 📈
 
-Siteaudit will analize your site and generate google Page Speed and Lighthouse report.
+Siteaudit will analize your site and generate audit for:
+
+- Pagespeed
+- Lighthouse
+- A11y
 
 <img src="docs/terminal.gif" />
 
@@ -50,6 +54,7 @@ https://canellariccardo.it \
 - `--config` specify a JSON file containing an extension to the configuration
 - `--no-pagespeed` no pagespeed audit will be generated
 - `--no-lighthouse` no lighthouse audit will be generated
+- `--a11y` start a11y audit
 - `--headless` use chrome headless
 
 
@@ -61,6 +66,7 @@ You can also using enviroments for passing the options
 - `SITEAUDIT_NOPAGESPEED` no pagespeed audit will be generated
 - `SITEAUDIT_CONFIG` specify a JSON file containing an extension to the configuration
 - `SITEAUDIT_URL` pass the url for running the audit
+- `SITEAUDIT_A11Y` tart a11y audit
 - `SITEAUDIT_HEADLESS` use chrome headless
 - `SITEAUDIT_USINGENV` force the use of the enviroments
 
@@ -110,13 +116,15 @@ audit:
 `siteaudit` will generate this output:
 
 - `lighthouse-audit.html`: contains the classi html result of lighthouse
-- `padespeed-audit.md`: an markdown format result of the pagespeed api
+- `padespeed-audit.md`: n markdown format result of the pagespeed api
+- `a11y-audit.md`: n markdown format result of the a11y api
 
 
 ### Output examples 
 
-<img src="docs/pagespeed.png" width="49%" />
-<img src="docs/lighthouse.png" width="49%" />
+<img src="docs/pagespeed.png" width="70%" />
+<img src="docs/lighthouse.png" width="70%" />
+<img src="docs/a11y.png" width="100%" />
 
 ## Contributing
 
