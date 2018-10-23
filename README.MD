@@ -116,7 +116,7 @@ audit:
 `siteaudit` will generate this output:
 
 - `lighthouse-audit.html`: contains the classi html result of lighthouse
-- `padespeed-audit.md`: a markdown format result of the pagespeed api
+- `pagespeed-audit.md`: a markdown format result of the pagespeed api
 - `a11y-audit.md`: a markdown format result of the a11y api
 
 
