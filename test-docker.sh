@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DOCKER_IMAGE="thecreazy/siteaudit"
-SITEAUDIT_URL="https://caffeina.com"
+SITEAUDIT_URL="https://canellariccardo.it"
 SITEAUDIT_USINGENV="true"
 SITEAUDIT_USINGENV="true"
 

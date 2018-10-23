@@ -105,6 +105,18 @@ audit:
     - output
 ```
 
+## Output
+
+`siteaudit` will generate this output:
+
+- `lighthouse-audit.html`: contains the classi html result of lighthouse
+- `padespeed-audit.md`: an markdown format result of the pagespeed api
+
+### Output examples 
+
+<img src="docs/pagespeed.png" width="50%" />
+<img src="docs/lighthouse.png" width="50%" />
+
 ## Contributing
 
 #### **Reporting bugs**
