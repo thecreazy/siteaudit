@@ -66,7 +66,7 @@ You can also using enviroments for passing the options
 - `SITEAUDIT_NOPAGESPEED` no pagespeed audit will be generated
 - `SITEAUDIT_CONFIG` specify a JSON file containing an extension to the configuration
 - `SITEAUDIT_URL` pass the url for running the audit
-- `SITEAUDIT_A11Y` tart a11y audit
+- `SITEAUDIT_A11Y` start a11y audit
 - `SITEAUDIT_HEADLESS` use chrome headless
 - `SITEAUDIT_USINGENV` force the use of the enviroments
 
@@ -116,8 +116,8 @@ audit:
 `siteaudit` will generate this output:
 
 - `lighthouse-audit.html`: contains the classi html result of lighthouse
-- `padespeed-audit.md`: n markdown format result of the pagespeed api
-- `a11y-audit.md`: n markdown format result of the a11y api
+- `padespeed-audit.md`: a markdown format result of the pagespeed api
+- `a11y-audit.md`: a markdown format result of the a11y api
 
 
 ### Output examples 
