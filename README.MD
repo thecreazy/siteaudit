@@ -24,18 +24,17 @@ You can also use the docker image to generate the reports
 
 ```sh
 docker run -t \
--v "$(pwd)/.testoutput":"/output" \
+-v "$(pwd)/.testoutput":"/app/output" \
 thecreazy/siteaudit:latest \
 https://canellariccardo.it \
 --headless
---
 ```
 
 #### Passing configuration
 
 ```sh
 docker run -t \
--v "$(pwd)/.testoutput":"/output" \
+-v "$(pwd)/.testoutput":"/app/output" \
 -v "$(pwd)/.siteaudit.json":"/.siteaudit.json"
 thecreazy/siteaudit:latest \
 https://canellariccardo.it \
@@ -51,6 +50,19 @@ https://canellariccardo.it \
 - `--config` specify a JSON file containing an extension to the configuration
 - `--no-pagespeed` no pagespeed audit will be generated
 - `--no-lighthouse` no lighthouse audit will be generated
+- `--headless` use chrome headless
+
+
+## Using ENV
+
+You can also using enviroments for passing the options
+
+- `SITEAUDIT_NOLIGHTHOUSE` no lighthouse audit will be generated
+- `SITEAUDIT_NOPAGESPEED` no pagespeed audit will be generated
+- `SITEAUDIT_CONFIG` specify a JSON file containing an extension to the configuration
+- `SITEAUDIT_URL` pass the url for running the audit
+- `SITEAUDIT_HEADLESS` use chrome headless
+- `SITEAUDIT_USINGENV` force the use of the enviroments
 
 ## Configuration
 
@@ -68,6 +80,29 @@ Example:
   "pages": [ "/", "/404" ]
  }
 }
+```
+
+## Using in gitlab-ci
+
+You can also use `siteaudit` in your gitlabci.yml
+
+```yml
+stages:
+  - audit
+
+audit:
+  image: 
+    name: thecreazy/siteaudit:1.1.4
+    entrypoint: ['']
+  stage: audit
+  variables:
+    SITEAUDIT_URL: "https://master.silvietta.n2.caffeina.host/"
+  script:
+    - echo "started siteaudit"
+    - /usr/local/bin/siteaudit ${SITEAUDIT_URL} --headless
+  artifacts:
+    paths:
+    - output
 ```
 
 ## Contributing

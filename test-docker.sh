@@ -2,6 +2,8 @@
 
 DOCKER_IMAGE="thecreazy/siteaudit"
 SITEAUDIT_URL="https://caffeina.com"
+SITEAUDIT_USINGENV="true"
+SITEAUDIT_USINGENV="true"
 
 mkdir -p .testoutput
 
