@@ -16,7 +16,7 @@ npm -g i siteaudit
 siteaudit https://canellariccardo.it
 ```
 
-### **Use docker**
+### **Use docker**
 
 You can also use the docker image to generate the reports
 
