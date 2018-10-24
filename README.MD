@@ -122,9 +122,50 @@ audit:
 
 ### Output examples 
 
-<img src="docs/pagespeed.png" width="70%" />
-<img src="docs/lighthouse.png" width="70%" />
-<img src="docs/a11y.png" width="100%" />
+<img src="docs/pagespeed.png" width="50%"  />
+<img src="docs/lighthouse.png" width="50%"  />
+<img src="docs/a11y.png" width="50%" />
+
+
+
+### Config json
+
+You can also pass a custom config json, there are some examples:
+
+- pagespeed
+
+```json
+{ 
+  pagespeed:{
+    "strategy" :  [ "mobile", "desktop"], // Strategy to use when analyzing the page. this is the base settings
+    "locale": "en_US", // Locale results should be generated in.
+    "threshold": "70", // Threshold score to pass the PageSpeed test. Useful for setting a performance budget.
+    "pages": ["/"]. //Array of relative pages to analyze, default is only / (please, use relative path)
+  }
+}
+```
+
+- lighthouse
+
+```json
+{ 
+  lighthouse:{
+    "extends" :  [ "lighthouse:default" ], // (string|boolean|undefined) The extends property controls if your configuration should inherit from the default Lighthouse configuration.
+    "settings": {
+      "onlyCategories": ["performance"],
+      "onlyAudits": ["works-offline"],
+    }, // (Object|undefined) The settings property controls various aspects of running Lighthouse such as CPU/network throttling and audit whitelisting/blacklisting.
+    "audits": [
+      "first-meaningful-paint",
+      "first-interactive",
+      "byte-efficiency/uses-optimized-images",
+    ] // (string[]) The audits property controls which audits to run and include with your Lighthouse report.
+  }
+}
+```
+
+For full list of settings options see [here](https://github.com/GoogleChrome/lighthouse/blob/master/docs/configuration.md).
+
 
 ## Contributing
 
