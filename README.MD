@@ -98,7 +98,7 @@ stages:
 
 audit:
   image: 
-    name: thecreazy/siteaudit:1.1.4
+    name: thecreazy/siteaudit:latest
     entrypoint: ['']
   stage: audit
   variables:
