@@ -97,7 +97,7 @@ You can also pass a custom config json, there are some examples:
 ```js
 { 
   "pagespeed":{
-    "strategy" :  [ "mobile", "desktop"], // Strategy to use when analyzing the page. this is the base settings
+    "strategy" :  [ "mobile", "desktop"], // Strategy to use when analyzing the page. this is the base settings, you can only use mobile | desktop
     "locale": "en_US", // Locale results should be generated in.
     "threshold": "70", // Threshold score to pass the PageSpeed test. Useful for setting a performance budget.
     "pages": ["/"]. //Array of relative pages to analyze, default is only / (please, use relative path)
