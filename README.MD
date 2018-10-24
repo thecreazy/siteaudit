@@ -134,9 +134,9 @@ You can also pass a custom config json, there are some examples:
 
 - pagespeed
 
-```json
+```js
 { 
-  pagespeed:{
+  "pagespeed":{
     "strategy" :  [ "mobile", "desktop"], // Strategy to use when analyzing the page. this is the base settings
     "locale": "en_US", // Locale results should be generated in.
     "threshold": "70", // Threshold score to pass the PageSpeed test. Useful for setting a performance budget.
@@ -147,9 +147,9 @@ You can also pass a custom config json, there are some examples:
 
 - lighthouse
 
-```json
+```js
 { 
-  lighthouse:{
+  "lighthouse":{
     "extends" :  [ "lighthouse:default" ], // (string|boolean|undefined) The extends property controls if your configuration should inherit from the default Lighthouse configuration.
     "settings": {
       "onlyCategories": ["performance"],
