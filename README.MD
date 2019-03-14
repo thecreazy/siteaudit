@@ -75,7 +75,7 @@ You can also using enviroments for passing the options
 If you pass to `siteaudit` an additional JSON file, it will be merged with initial config.
 
 ```sh
-siteaduit https://canellariccardo.it --config ./config.json
+siteaudit https://canellariccardo.it --config ./config.json
 ```
 
 Example:
