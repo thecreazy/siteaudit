@@ -1,6 +1,6 @@
 # 📈 Siteaudit: Generate audit benchmark for your site 📈
 
-Siteaudit will analize your site and generate audit for:
+Siteaudit will analyze your site and generate audit for:
 
 - Pagespeed
 - Lighthouse
@@ -50,7 +50,7 @@ https://canellariccardo.it \
 
 ## Runtime options
 
-- `--output` specify the output directory (where your assets will be generated))
+- `--output` specify the output directory (where your assets will be generated)
 - `--config` specify a JSON file containing an extension to the configuration
 - `--no-pagespeed` no pagespeed audit will be generated
 - `--no-lighthouse` no lighthouse audit will be generated
@@ -60,7 +60,7 @@ https://canellariccardo.it \
 
 ## Using ENV
 
-You can also using enviroments for passing the options
+You can also use environments for passing the options
 
 - `SITEAUDIT_NOLIGHTHOUSE` no lighthouse audit will be generated
 - `SITEAUDIT_NOPAGESPEED` no pagespeed audit will be generated
@@ -68,7 +68,7 @@ You can also using enviroments for passing the options
 - `SITEAUDIT_URL` pass the url for running the audit
 - `SITEAUDIT_A11Y` start a11y audit
 - `SITEAUDIT_HEADLESS` use chrome headless
-- `SITEAUDIT_USINGENV` force the use of the enviroments
+- `SITEAUDIT_USINGENV` force the use of the environments
 
 ## Configuration
 
@@ -153,7 +153,7 @@ audit:
 
 `siteaudit` will generate this output:
 
-- `lighthouse-audit.html`: contains the classi html result of lighthouse
+- `lighthouse-audit.html`: contains the classic html result of lighthouse
 - `pagespeed-audit.md`: a markdown format result of the pagespeed api
 - `a11y-audit.md`: a markdown format result of the a11y api
 
