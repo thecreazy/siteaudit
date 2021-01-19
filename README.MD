@@ -54,7 +54,7 @@ thecreazy/siteaudit:latest \
 - `--config` specify a JSON file containing an extension to the configuration
 - `--no-pagespeed` no pagespeed audit will be generated
 - `--no-lighthouse` no lighthouse audit will be generated
-- `--a11y` start a11y audit
+- `--no-a11y` start without a11y audit
 - `--headless` use chrome headless
 
 ## Using ENV
@@ -65,7 +65,7 @@ You can also use environments for passing the options
 - `SITEAUDIT_NOPAGESPEED` no pagespeed audit will be generated
 - `SITEAUDIT_CONFIG` specify a JSON file containing an extension to the configuration
 - `SITEAUDIT_URL` pass the url for running the audit
-- `SITEAUDIT_A11Y` start a11y audit
+- `SITEAUDIT_A11Y` no a11y audit will be generated
 - `SITEAUDIT_HEADLESS` use chrome headless
 - `SITEAUDIT_USINGENV` force the use of the environments
 
