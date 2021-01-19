@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.4](https://github.com/thecreazy/siteaudit/compare/v2.0.3...v2.0.4) (2021-01-19)
+
+
+### Bug Fixes
+
+* 🐛 package version ([b65b216](https://github.com/thecreazy/siteaudit/commit/b65b21690ec9c91046653a19b74ba74a8c72397f))
+
 ### [2.0.3](https://github.com/thecreazy/siteaudit/compare/v2.0.2...v2.0.3) (2021-01-19)
 
 ### [2.0.2](https://github.com/thecreazy/siteaudit/compare/v2.0.1...v2.0.2) (2021-01-19)
