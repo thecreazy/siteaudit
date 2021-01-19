@@ -1,19 +1,20 @@
-FROM geekykaran/headless-chrome-node-docker:latest
+FROM markhobson/node-chrome:latest
 
 WORKDIR /app
 
+RUN npm install --global yarn
 COPY package.json /app/package.json
-COPY package-lock.json /app/package-lock.json
+COPY yarn.lock /app/yarn.lock
 RUN yarn
 
 COPY . /app
-RUN npm link
+RUN yarn link
 
 RUN google-chrome \
-    --headless \
-    --hide-scrollbars \
-    --disable-gpu \
-    --no-sandbox
+  --headless \
+  --hide-scrollbars \
+  --disable-gpu \
+  --no-sandbox
 
 ENTRYPOINT ["/usr/local/bin/siteaudit"]
 
