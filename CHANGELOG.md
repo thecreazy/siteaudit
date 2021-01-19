@@ -1,0 +1,13 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## 2.0.0 (2021-01-19)
+
+
+### Bug Fixes
+
+* **dep:** update dependencies, use yarn and changed commander's commands ([23f7746](https://github.com/thecreazy/siteaudit/commit/23f7746c9d7380d0dfa30e354c05ca48b66d9aef))
+* **lightouse:** fix lightouse and works with all libraries ([0d66cc3](https://github.com/thecreazy/siteaudit/commit/0d66cc35b857aa63013dedcea1dcfa6a60be8ffa))
+* fixed a typo in readme ([42a067c](https://github.com/thecreazy/siteaudit/commit/42a067c05bee17a33191195c0ef4ae8999c5c6af))
+* missing value options in output args ([d2bfb0a](https://github.com/thecreazy/siteaudit/commit/d2bfb0a59507dee3eeb5e1379e2eda67532faff8))
