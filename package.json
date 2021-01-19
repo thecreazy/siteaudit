@@ -1,11 +1,12 @@
 {
   "name": "siteaudit",
-  "version": "1.2.1",
+  "version": "2.0.0",
   "description": "Siteaudit will analize your site and generate Google Page Speed and Lighthouse report.",
   "main": "/lib/index.js",
   "scripts": {
     "lint": "npx eslint ./lib",
-    "commit": "npx git-cz"
+    "commit": "npx git-cz",
+    "release": "standard-version"
   },
   "config": {
     "commitizen": {
@@ -52,6 +53,7 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.22.0",
-    "git-cz": "^4.7.6"
+    "git-cz": "^4.7.6",
+    "standard-version": "^9.1.0"
   }
 }

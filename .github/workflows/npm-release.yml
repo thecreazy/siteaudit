@@ -1,0 +1,25 @@
+name: Create Npm Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+      - name: Install dependencies with node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 13.7
+      - run: yarn install
+      - run: yarn test
+      - run: yarn build
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          tag: ${{ github.ref }}
+          access: public
