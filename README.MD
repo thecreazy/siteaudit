@@ -47,7 +47,6 @@ https://canellariccardo.it \
 --headless
 ```
 
-
 ## Runtime options
 
 - `--output` specify the output directory (where your assets will be generated)
@@ -56,7 +55,6 @@ https://canellariccardo.it \
 - `--no-lighthouse` no lighthouse audit will be generated
 - `--a11y` start a11y audit
 - `--headless` use chrome headless
-
 
 ## Using ENV
 
@@ -82,9 +80,9 @@ Example:
 
 ```json
 {
- "pagespeed": {
-  "pages": [ "/", "/404" ]
- }
+  "pagespeed": {
+    "pages": ["/", "/404"]
+  }
 }
 ```
 
@@ -95,7 +93,7 @@ You can also pass a custom config json, there are some examples:
 - pagespeed
 
 ```js
-{ 
+{
   "pagespeed":{
     "strategy" :  [ "mobile", "desktop"], // Strategy to use when analyzing the page. this is the base settings, you can only use mobile | desktop
     "locale": "en_US", // Locale results should be generated in.
@@ -110,7 +108,7 @@ You can also pass a custom config json, there are some examples:
 > For full list of settings options see [here](https://github.com/GoogleChrome/lighthouse/blob/master/docs/configuration.md).
 
 ```js
-{ 
+{
   "lighthouse":{
     "extends" :  [ "lighthouse:default" ], // (string|boolean|undefined) The extends property controls if your configuration should inherit from the default Lighthouse configuration.
     "settings": {
@@ -135,18 +133,18 @@ stages:
   - audit
 
 audit:
-  image: 
+  image:
     name: thecreazy/siteaudit:latest
-    entrypoint: ['']
+    entrypoint: [""]
   stage: audit
   variables:
-    SITEAUDIT_URL: "https://master.silvietta.n2.caffeina.host/"
+    SITEAUDIT_URL: "https://canellaricardo.it"
   script:
     - echo "started siteaudit"
     - /usr/local/bin/siteaudit ${SITEAUDIT_URL} --headless
   artifacts:
     paths:
-    - output
+      - output
 ```
 
 ## Output
@@ -157,30 +155,26 @@ audit:
 - `pagespeed-audit.md`: a markdown format result of the pagespeed api
 - `a11y-audit.md`: a markdown format result of the a11y api
 
-
-### Output examples 
+### Output examples
 
 <img src="docs/pagespeed.png" width="50%"  />
 <img src="docs/lighthouse.png" width="50%"  />
 <img src="docs/a11y.png" width="50%" />
 
-
 ## Contributing
 
 #### **Reporting bugs**
 
-* Open a GitHub issue 
+- Open a GitHub issue
 
 #### **Contributing with patches and bug fixes**
 
-* Open a new GitHub pull request with the patch.
-* Ensure the PR description clearly describes the problem and solution.
-
+- Open a new GitHub pull request with the patch.
+- Ensure the PR description clearly describes the problem and solution.
 
 ## Contributors
 
 - Riccardo Canella [@thecreazy](https://github.com/thecreazy)
-
 
 ## License
 
