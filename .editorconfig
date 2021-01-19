@@ -7,5 +7,6 @@ charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = true
 end_of_line = lf
+quote_type = single
 # editorconfig-tools is unable to ignore longs strings or urls
 max_line_length = null
