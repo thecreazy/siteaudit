@@ -17,7 +17,7 @@ You can use `siteaudit` from your terminal using the npm package and run it as a
 ```sh
 npm -g i siteaudit
 
-siteaudit https://canellariccardo.it
+siteaudit --url https://canellariccardo.it
 ```
 
 ### **Use docker**
@@ -30,7 +30,7 @@ You can also use the docker image to generate the reports
 docker run -t \
 -v "$(pwd)/.testoutput":"/app/output" \
 thecreazy/siteaudit:latest \
-https://canellariccardo.it \
+--url https://canellariccardo.it \
 --headless
 ```
 
@@ -41,7 +41,7 @@ docker run -t \
 -v "$(pwd)/.testoutput":"/app/output" \
 -v "$(pwd)/.siteaudit.json":"/.siteaudit.json"
 thecreazy/siteaudit:latest \
-https://canellariccardo.it \
+--url https://canellariccardo.it \
 --no-lighthouse \
 --config /.siteaudit.json \
 --headless
@@ -49,6 +49,7 @@ https://canellariccardo.it \
 
 ## Runtime options
 
+- `--url` specify the base url to test
 - `--output` specify the output directory (where your assets will be generated)
 - `--config` specify a JSON file containing an extension to the configuration
 - `--no-pagespeed` no pagespeed audit will be generated
@@ -73,7 +74,7 @@ You can also use environments for passing the options
 If you pass to `siteaudit` an additional JSON file, it will be merged with initial config.
 
 ```sh
-siteaudit https://canellariccardo.it --config ./config.json
+siteaudit --url https://canellariccardo.it --config ./config.json
 ```
 
 Example:
@@ -135,10 +136,10 @@ stages:
 audit:
   image:
     name: thecreazy/siteaudit:latest
-    entrypoint: [""]
+    entrypoint: ['']
   stage: audit
   variables:
-    SITEAUDIT_URL: "https://canellaricardo.it"
+    SITEAUDIT_URL: 'https://canellaricardo.it'
   script:
     - echo "started siteaudit"
     - /usr/local/bin/siteaudit ${SITEAUDIT_URL} --headless
