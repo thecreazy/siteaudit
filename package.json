@@ -9,6 +9,7 @@
     "release": "standard-version"
   },
   "files": [
+    "bin",
     "lib",
     "docs",
     "CHANGELOG.md",
