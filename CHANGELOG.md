@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/thecreazy/siteaudit/compare/v2.0.4...v2.1.0) (2021-06-10)
+
+
+### Features
+
+* 🎸 adding possibility to use inside nodejs ([86d66f9](https://github.com/thecreazy/siteaudit/commit/86d66f93d80b88e04bb1929b5a41f24f8b29ba47))
+
 ### [2.0.4](https://github.com/thecreazy/siteaudit/compare/v2.0.3...v2.0.4) (2021-01-19)
 
 
