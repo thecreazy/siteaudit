@@ -20,6 +20,20 @@ npm -g i siteaudit
 siteaudit --url https://canellariccardo.it
 ```
 
+or you can use siteadit inside your node application
+
+```js
+const SiteAudit = require('siteaudit/lib/node');
+
+SiteAudit.start('https://canellariccardo.it', {
+  pagespeed: true,
+  lighthouse: false,
+  a11y: true,
+  outputFolder: '/output',
+  customAppenName: `-${Date.now()}`,
+});
+```
+
 ### **Use docker**
 
 You can also use the docker image to generate the reports
@@ -142,7 +156,7 @@ audit:
     SITEAUDIT_URL: 'https://canellaricardo.it'
   script:
     - echo "started siteaudit"
-    - /usr/local/bin/siteaudit ${SITEAUDIT_URL} --headless
+    - /usr/local/bin/siteaudit --url=${SITEAUDIT_URL} --headless
   artifacts:
     paths:
       - output

@@ -8,6 +8,13 @@
     "commit": "npx git-cz",
     "release": "standard-version"
   },
+  "files": [
+    "lib",
+    "docs",
+    "CHANGELOG.md",
+    "LICENSE.md",
+    "yarn.json"
+  ],
   "config": {
     "commitizen": {
       "path": "git-cz"
