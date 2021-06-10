@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.1](https://github.com/thecreazy/siteaudit/compare/v2.1.0...v2.1.1) (2021-06-10)
+
+
+### Bug Fixes
+
+* 🐛 added bin folder inside files in package.json ([9bb17c6](https://github.com/thecreazy/siteaudit/commit/9bb17c6a5c537c9177d9ed59b9876df1bafaff17))
+
 ## [2.1.0](https://github.com/thecreazy/siteaudit/compare/v2.0.4...v2.1.0) (2021-06-10)
 
 
